@@ -12,9 +12,209 @@ namespace ControlesElectronicos
 {
     public partial class Form1 : Form
     {
+        List<Compra> Compras = new List<Compra>();
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbCelulares_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbCelulares.SelectedItem.Equals("Huawei"))
+            {
+                lbiPhone.Visible = false;
+                lbSamsung.Visible = false;
+                lbHuawei.Visible = true;
+            }
+            if (cmbCelulares.SelectedItem.Equals("iPhone"))
+            {
+                lbiPhone.Visible = true;
+                lbSamsung.Visible = false;
+                lbHuawei.Visible = false;
+            }
+            if (cmbCelulares.SelectedItem.Equals("Samsung"))
+            {
+                lbiPhone.Visible = false;
+                lbSamsung.Visible = true;
+                lbHuawei.Visible = false;
+            }
+        }
+
+        private void lbDispositivo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lbHuawei.SelectedItem.Equals("HUAWEI Mate 20"))
+            {
+                Image miImagen = Image.FromFile("mate20.png");
+                Image mio = Image.FromFile("mate20pro.png");
+
+                picNormal.Image = miImagen;
+                picPro.Image = mio;
+                chkComprar.Checked = false;
+                chkComprar1.Checked = false;
+            }
+            if (lbHuawei.SelectedItem.Equals("HUAWEI Mate 10"))
+            {
+                Image miImagen = Image.FromFile("mate10.png");
+                Image mio = Image.FromFile("mate10pro.png");
+
+                picNormal.Image = miImagen;
+                picPro.Image = mio;
+                chkComprar.Checked = false;
+                chkComprar1.Checked = false;
+            }
+            if (lbHuawei.SelectedItem.Equals("HUAWEI Y9"))
+            {
+                Image miImagen = Image.FromFile("y9-prime-2019.png");
+                Image mio = Image.FromFile("y9-2018.png");
+
+                picNormal.Image = miImagen;
+                picPro.Image = mio;
+                chkComprar.Checked = false;
+                chkComprar1.Checked = false;
+            }
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lbSamsung.SelectedItem.Equals("Samsung Galaxy S20"))
+            {
+                Image miImagen = Image.FromFile("s20.jpg");
+                Image mio = Image.FromFile("s20ultra.jpg");
+
+                picNormal.Image = miImagen;
+                picPro.Image = mio;
+                chkComprar.Checked = false;
+                chkComprar1.Checked = false;
+            }
+            if (lbSamsung.SelectedItem.Equals("Samsung Galaxy A50"))
+            {
+                Image miImagen = Image.FromFile("a50.jpg");
+                Image mio = Image.FromFile("a50s.jpg");
+
+                picNormal.Image = miImagen;
+                picPro.Image = mio;
+                chkComprar.Checked = false;
+                chkComprar1.Checked = false;
+            }
+            if (lbSamsung.SelectedItem.Equals("Samsung Galaxy S10"))
+            {
+                Image miImagen = Image.FromFile("s10.jpg");
+                Image mio = Image.FromFile("s10plus.jpg");
+
+                picNormal.Image = miImagen;
+                picPro.Image = mio;
+                chkComprar.Checked = false;
+                chkComprar1.Checked = false;
+            }
+        }
+
+        private void lbiPhone_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lbiPhone.SelectedItem.Equals("iPhone 11"))
+            {
+                Image miImagen = Image.FromFile("11pro.jpg");
+                Image mio = Image.FromFile("11promax.jpg");
+
+                picNormal.Image = miImagen;
+                picPro.Image = mio;
+                chkComprar.Checked = false;
+                chkComprar1.Checked = false;
+            }
+            if (lbiPhone.SelectedItem.Equals("iPhone X"))
+            {
+                Image miImagen = Image.FromFile("xpro.jpg");
+                Image mio = Image.FromFile("xpromax.jpg");
+
+                picNormal.Image = miImagen;
+                picPro.Image = mio;
+                chkComprar.Checked = false;
+                chkComprar1.Checked = false;
+            }
+            if (lbiPhone.SelectedItem.Equals("iPhone 8"))
+            {
+                Image miImagen = Image.FromFile("i8.jpg");
+                Image mio = Image.FromFile("i8plus.jpg");
+
+                picNormal.Image = miImagen;
+                picPro.Image = mio;
+                chkComprar.Checked = false;
+                chkComprar1.Checked = false;
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+          
+            try
+            {
+                if (Control())
+                {
+                    Compra cliente = new Compra();
+                    cliente.Nombre = mtxtNombre.Text;
+                    cliente.Cedula = txtCedula.Text;
+                    Compras.Add(cliente);
+                    MessageBox.Show("compra realizada");
+                    limpiar();
+                    //Muestra en la lista el objeto ingresado
+                    ListViewItem item =  new ListViewItem();
+                    item = lstProductos.Items.Add(cliente.Nombre.ToString());
+                    item.SubItems.Add(cliente.Cedula);
+                    if (cmbCelulares.SelectedItem.Equals("Huawei"))
+                    {
+                        item.SubItems.Add(lbHuawei.Text);
+                    }
+                    if (cmbCelulares.SelectedItem.Equals("iPhone"))
+                    {
+                        item.SubItems.Add(lbiPhone.Text);
+                    }
+                    if (cmbCelulares.SelectedItem.Equals("Samsung"))
+                    {
+                        item.SubItems.Add(lbSamsung.Text);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Espacios sin completar");
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        public bool Control()
+        {
+            bool aux = false;
+            if (mtxtNombre.Text != "" && txtCedula.Text != "")
+            {
+                if ((chkComprar.Checked != false || chkComprar1.Checked != false) && (lbiPhone.Text != " " || lbHuawei.Text != " " || lbSamsung.Text != " "))
+                {
+                    aux = true;
+                }
+            }
+            return aux;
+        }
+
+  
+        public void limpiar()
+        {
+            mtxtNombre.Clear();
+            txtCedula.Clear();
+            chkComprar.Checked = false;
+            chkComprar1.Checked = false;
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            foreach(ListViewItem item in lstProductos.SelectedItems)
+            {
+                item.Remove();
+            }
         }
     }
 }
