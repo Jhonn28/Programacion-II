@@ -225,7 +225,6 @@ namespace ControlesElectronicos
 
                 cliente.Nombre = mtxtNombre.Text;
                 cliente.Cedula = txtCedula.Text;
-                MessageBox.Show("compra realizada");
                 PedidoRealizado pedidoRealizado = new PedidoRealizado();
                 pedidoRealizado.Show();
                 this.Hide();
