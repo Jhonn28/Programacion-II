@@ -16,5 +16,10 @@ namespace ControlesElectronicos
         {
             InitializeComponent();
         }
+
+        private void PedidoRealizado_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

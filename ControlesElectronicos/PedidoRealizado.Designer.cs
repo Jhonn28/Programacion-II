@@ -28,12 +28,85 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.lblDatos = new System.Windows.Forms.Label();
+            this.lblCliente = new System.Windows.Forms.Label();
+            this.lblCedula = new System.Windows.Forms.Label();
+            this.lblPProductos = new System.Windows.Forms.Label();
+            this.lblProductos = new System.Windows.Forms.Label();
+            this.SuspendLayout();
+            // 
+            // lblDatos
+            // 
+            this.lblDatos.AutoSize = true;
+            this.lblDatos.Font = new System.Drawing.Font("Sitka Banner", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDatos.Location = new System.Drawing.Point(55, 9);
+            this.lblDatos.Name = "lblDatos";
+            this.lblDatos.Size = new System.Drawing.Size(181, 28);
+            this.lblDatos.TabIndex = 0;
+            this.lblDatos.Text = "Datos del Comprador:";
+            // 
+            // lblCliente
+            // 
+            this.lblCliente.AutoSize = true;
+            this.lblCliente.Font = new System.Drawing.Font("Sitka Display", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCliente.Location = new System.Drawing.Point(57, 58);
+            this.lblCliente.Name = "lblCliente";
+            this.lblCliente.Size = new System.Drawing.Size(0, 23);
+            this.lblCliente.TabIndex = 1;
+            // 
+            // lblCedula
+            // 
+            this.lblCedula.AutoSize = true;
+            this.lblCedula.Font = new System.Drawing.Font("Sitka Display", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCedula.Location = new System.Drawing.Point(56, 98);
+            this.lblCedula.Name = "lblCedula";
+            this.lblCedula.Size = new System.Drawing.Size(0, 23);
+            this.lblCedula.TabIndex = 2;
+            // 
+            // lblPProductos
+            // 
+            this.lblPProductos.AutoSize = true;
+            this.lblPProductos.Font = new System.Drawing.Font("Sitka Banner", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPProductos.Location = new System.Drawing.Point(55, 147);
+            this.lblPProductos.Name = "lblPProductos";
+            this.lblPProductos.Size = new System.Drawing.Size(158, 28);
+            this.lblPProductos.TabIndex = 4;
+            this.lblPProductos.Text = "Productos a pedir: ";
+            // 
+            // lblProductos
+            // 
+            this.lblProductos.AutoSize = true;
+            this.lblProductos.Font = new System.Drawing.Font("Sitka Display", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblProductos.Location = new System.Drawing.Point(57, 197);
+            this.lblProductos.Name = "lblProductos";
+            this.lblProductos.Size = new System.Drawing.Size(0, 23);
+            this.lblProductos.TabIndex = 5;
+            // 
+            // PedidoRealizado
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(422, 479);
+            this.Controls.Add(this.lblProductos);
+            this.Controls.Add(this.lblPProductos);
+            this.Controls.Add(this.lblCedula);
+            this.Controls.Add(this.lblCliente);
+            this.Controls.Add(this.lblDatos);
+            this.Name = "PedidoRealizado";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PedidoRealizado";
+            this.Load += new System.EventHandler(this.PedidoRealizado_Load);
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
+
+        private System.Windows.Forms.Label lblDatos;
+        public System.Windows.Forms.Label lblCliente;
+        public System.Windows.Forms.Label lblCedula;
+        private System.Windows.Forms.Label lblPProductos;
+        public System.Windows.Forms.Label lblProductos;
     }
 }

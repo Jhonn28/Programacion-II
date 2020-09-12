@@ -368,8 +368,6 @@
         private System.Windows.Forms.CheckBox chkComprar1;
         private System.Windows.Forms.Button btnComprar;
         private System.Windows.Forms.ListView lstProductos;
-        private System.Windows.Forms.ColumnHeader Cliente;
-        private System.Windows.Forms.ColumnHeader Cedula;
         private System.Windows.Forms.ColumnHeader Productos;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.MaskedTextBox mtxtNombre;

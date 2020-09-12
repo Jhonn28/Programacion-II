@@ -149,19 +149,19 @@ namespace ControlesElectronicos
 
         private void button1_Click(object sender, EventArgs e)
         {
-          
+
             try
             {
                 if (Control())
                 {
                     MessageBox.Show("Producto en el carrito+");
                     //Muestra en la lista el objeto ingresado
-                    ListViewItem item =  new ListViewItem();
+                    ListViewItem item = new ListViewItem();
 
                     if (cmbCelulares.SelectedItem.Equals("Huawei"))
                     {
                         item = lstProductos.Items.Add(lbHuawei.Text);
-                        
+
                     }
                     if (cmbCelulares.SelectedItem.Equals("iPhone"))
                     {
@@ -171,14 +171,14 @@ namespace ControlesElectronicos
                     {
                         item = lstProductos.Items.Add(lbSamsung.Text);
                     }
-          
+
                 }
                 else
                 {
                     MessageBox.Show("Selecciones producto :)");
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -188,12 +188,12 @@ namespace ControlesElectronicos
             bool aux = false;
             if ((chkComprar.Checked != false || chkComprar1.Checked != false) && (lbiPhone.Text != " " || lbHuawei.Text != " " || lbSamsung.Text != " "))
             {
-                 aux = true;
+                aux = true;
             }
             return aux;
         }
 
-  
+
         public void limpiar()
         {
             mtxtNombre.Clear();
@@ -204,7 +204,7 @@ namespace ControlesElectronicos
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            foreach(ListViewItem item in lstProductos.SelectedItems)
+            foreach (ListViewItem item in lstProductos.SelectedItems)
             {
                 item.Remove();
             }
@@ -212,7 +212,7 @@ namespace ControlesElectronicos
 
         private void btnPedido_Click(object sender, EventArgs e)
         {
-            if(mtxtNombre.Text != "" && txtCedula.Text != "")
+            if (mtxtNombre.Text != "" && txtCedula.Text != "")
             {
                 Compra cliente = new Compra();
 
@@ -220,12 +220,15 @@ namespace ControlesElectronicos
                 cliente.Cedula = txtCedula.Text;
                 Compras.Add(cliente);
                 MessageBox.Show("compra realizada");
-                limpiar();
                 PedidoRealizado pedidoRealizado = new PedidoRealizado();
                 pedidoRealizado.Show();
                 this.Hide();
+				
+				pedidoRealizado.lblCliente.Text = "Cliente:   " + mtxtNombre.Text;
 
-            }
+				pedidoRealizado.lblCedula.Text = "Cedula o RUC:  " + txtCedula.Text;
+
+			}
             else
             {
                 MessageBox.Show("Ingrese Datos del Comprador");
