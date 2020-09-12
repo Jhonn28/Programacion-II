@@ -51,7 +51,7 @@ namespace ControlesElectronicos
             {
                 Image miImagen = Image.FromFile("mate20.png");
                 Image mio = Image.FromFile("mate20pro.png");
-
+                //IMAGENES
                 picNormal.Image = miImagen;
                 picPro.Image = mio;
                 chkComprar.Checked = false;
