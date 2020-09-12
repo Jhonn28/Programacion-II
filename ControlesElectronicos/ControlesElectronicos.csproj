@@ -59,6 +59,8 @@
     <Compile Include="PedidoRealizado.Designer.cs">
       <DependentUpon>PedidoRealizado.cs</DependentUpon>
     </Compile>
+    <Compile Include="Producto.cs" />
+    <Compile Include="Productos.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">

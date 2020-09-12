@@ -12,7 +12,7 @@ namespace ControlesElectronicos
 {
     public partial class Form1 : Form
     {
-        List<Compra> Compras = new List<Compra>();
+        Productos productos = new Productos();
         public Form1()
         {
             InitializeComponent();
@@ -154,23 +154,29 @@ namespace ControlesElectronicos
             {
                 if (Control())
                 {
-                    MessageBox.Show("Producto en el carrito+");
+                    MessageBox.Show("Producto en el carrito");
+                    pnlDatos.Visible = true;
+                    Producto producto = new Producto();
                     //Muestra en la lista el objeto ingresado
                     ListViewItem item = new ListViewItem();
 
                     if (cmbCelulares.SelectedItem.Equals("Huawei"))
                     {
+                        producto.NombreP = lbHuawei.Text;
                         item = lstProductos.Items.Add(lbHuawei.Text);
 
                     }
                     if (cmbCelulares.SelectedItem.Equals("iPhone"))
                     {
                         item = lstProductos.Items.Add(lbiPhone.Text);
+                        producto.NombreP = lbiPhone.Text;
                     }
                     if (cmbCelulares.SelectedItem.Equals("Samsung"))
                     {
                         item = lstProductos.Items.Add(lbSamsung.Text);
+                        producto.NombreP = lbiPhone.Text;
                     }
+                    productos.Ingresar(producto);
 
                 }
                 else
@@ -218,7 +224,6 @@ namespace ControlesElectronicos
 
                 cliente.Nombre = mtxtNombre.Text;
                 cliente.Cedula = txtCedula.Text;
-                Compras.Add(cliente);
                 MessageBox.Show("compra realizada");
                 PedidoRealizado pedidoRealizado = new PedidoRealizado();
                 pedidoRealizado.Show();
@@ -228,6 +233,8 @@ namespace ControlesElectronicos
 
 				pedidoRealizado.lblCedula.Text = "Cedula o RUC:  " + txtCedula.Text;
 
+                pedidoRealizado.productos = productos;
+                pedidoRealizado.dgvMostrar.DataSource = productos.MisProductos;
 			}
             else
             {

@@ -51,9 +51,11 @@
             this.mtxtNombre = new System.Windows.Forms.MaskedTextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnPedido = new System.Windows.Forms.Button();
+            this.pnlDatos = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.picNormal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPro)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pnlDatos.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblTitulo
@@ -160,7 +162,7 @@
             this.lblDatos.BackColor = System.Drawing.Color.Transparent;
             this.lblDatos.Font = new System.Drawing.Font("Sitka Banner", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDatos.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblDatos.Location = new System.Drawing.Point(737, 127);
+            this.lblDatos.Location = new System.Drawing.Point(76, 0);
             this.lblDatos.Name = "lblDatos";
             this.lblDatos.Size = new System.Drawing.Size(111, 21);
             this.lblDatos.TabIndex = 8;
@@ -172,7 +174,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Sitka Banner", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label1.Location = new System.Drawing.Point(663, 197);
+            this.label1.Location = new System.Drawing.Point(2, 70);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(54, 21);
             this.label1.TabIndex = 9;
@@ -184,7 +186,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Sitka Banner", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label2.Location = new System.Drawing.Point(663, 165);
+            this.label2.Location = new System.Drawing.Point(2, 38);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(67, 21);
             this.label2.TabIndex = 10;
@@ -192,7 +194,7 @@
             // 
             // txtCedula
             // 
-            this.txtCedula.Location = new System.Drawing.Point(736, 200);
+            this.txtCedula.Location = new System.Drawing.Point(75, 73);
             this.txtCedula.Name = "txtCedula";
             this.txtCedula.Size = new System.Drawing.Size(100, 20);
             this.txtCedula.TabIndex = 4;
@@ -280,7 +282,7 @@
             // 
             // mtxtNombre
             // 
-            this.mtxtNombre.Location = new System.Drawing.Point(736, 165);
+            this.mtxtNombre.Location = new System.Drawing.Point(75, 38);
             this.mtxtNombre.Mask = "LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL";
             this.mtxtNombre.Name = "mtxtNombre";
             this.mtxtNombre.PromptChar = ' ';
@@ -307,6 +309,19 @@
             this.btnPedido.UseVisualStyleBackColor = true;
             this.btnPedido.Click += new System.EventHandler(this.btnPedido_Click);
             // 
+            // pnlDatos
+            // 
+            this.pnlDatos.Controls.Add(this.lblDatos);
+            this.pnlDatos.Controls.Add(this.label1);
+            this.pnlDatos.Controls.Add(this.label2);
+            this.pnlDatos.Controls.Add(this.txtCedula);
+            this.pnlDatos.Controls.Add(this.mtxtNombre);
+            this.pnlDatos.Location = new System.Drawing.Point(609, 103);
+            this.pnlDatos.Name = "pnlDatos";
+            this.pnlDatos.Size = new System.Drawing.Size(247, 121);
+            this.pnlDatos.TabIndex = 22;
+            this.pnlDatos.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -314,6 +329,7 @@
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(979, 603);
+            this.Controls.Add(this.pnlDatos);
             this.Controls.Add(this.btnPedido);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button1);
@@ -323,11 +339,6 @@
             this.Controls.Add(this.chkComprar);
             this.Controls.Add(this.picPro);
             this.Controls.Add(this.picNormal);
-            this.Controls.Add(this.mtxtNombre);
-            this.Controls.Add(this.txtCedula);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.lblDatos);
             this.Controls.Add(this.lbSamsung);
             this.Controls.Add(this.lbiPhone);
             this.Controls.Add(this.cmbCelulares);
@@ -344,6 +355,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.picNormal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPro)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.pnlDatos.ResumeLayout(false);
+            this.pnlDatos.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -373,6 +386,7 @@
         private System.Windows.Forms.MaskedTextBox mtxtNombre;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnPedido;
+        private System.Windows.Forms.Panel pnlDatos;
     }
 }
 
