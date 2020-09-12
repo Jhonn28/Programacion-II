@@ -154,32 +154,28 @@ namespace ControlesElectronicos
             {
                 if (Control())
                 {
-                    Compra cliente = new Compra();
-                    cliente.Nombre = mtxtNombre.Text;
-                    cliente.Cedula = txtCedula.Text;
-                    Compras.Add(cliente);
-                    MessageBox.Show("compra realizada");
-                    limpiar();
+                    MessageBox.Show("Producto en el carrito+");
                     //Muestra en la lista el objeto ingresado
                     ListViewItem item =  new ListViewItem();
-                    item = lstProductos.Items.Add(cliente.Nombre.ToString());
-                    item.SubItems.Add(cliente.Cedula);
+
                     if (cmbCelulares.SelectedItem.Equals("Huawei"))
                     {
-                        item.SubItems.Add(lbHuawei.Text);
+                        item = lstProductos.Items.Add(lbHuawei.Text);
+                        
                     }
                     if (cmbCelulares.SelectedItem.Equals("iPhone"))
                     {
-                        item.SubItems.Add(lbiPhone.Text);
+                        item = lstProductos.Items.Add(lbiPhone.Text);
                     }
                     if (cmbCelulares.SelectedItem.Equals("Samsung"))
                     {
-                        item.SubItems.Add(lbSamsung.Text);
+                        item = lstProductos.Items.Add(lbSamsung.Text);
                     }
+          
                 }
                 else
                 {
-                    MessageBox.Show("Espacios sin completar");
+                    MessageBox.Show("Selecciones producto :)");
                 }
             }
             catch(Exception ex)
@@ -190,12 +186,9 @@ namespace ControlesElectronicos
         public bool Control()
         {
             bool aux = false;
-            if (mtxtNombre.Text != "" && txtCedula.Text != "")
+            if ((chkComprar.Checked != false || chkComprar1.Checked != false) && (lbiPhone.Text != " " || lbHuawei.Text != " " || lbSamsung.Text != " "))
             {
-                if ((chkComprar.Checked != false || chkComprar1.Checked != false) && (lbiPhone.Text != " " || lbHuawei.Text != " " || lbSamsung.Text != " "))
-                {
-                    aux = true;
-                }
+                 aux = true;
             }
             return aux;
         }
@@ -216,5 +209,27 @@ namespace ControlesElectronicos
                 item.Remove();
             }
         }
+
+        private void btnPedido_Click(object sender, EventArgs e)
+        {
+            if(mtxtNombre.Text != "" && txtCedula.Text != "")
+            {
+                Compra cliente = new Compra();
+
+                cliente.Nombre = mtxtNombre.Text;
+                cliente.Cedula = txtCedula.Text;
+                Compras.Add(cliente);
+                MessageBox.Show("compra realizada");
+                limpiar();
+                PedidoRealizado pedidoRealizado = new PedidoRealizado();
+                pedidoRealizado.Show();
+                this.Hide();
+
+            }
+            else
+            {
+                MessageBox.Show("Ingrese Datos del Comprador");
+            }
+		}
     }
 }

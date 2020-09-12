@@ -46,12 +46,11 @@
             this.chkComprar1 = new System.Windows.Forms.CheckBox();
             this.btnComprar = new System.Windows.Forms.Button();
             this.lstProductos = new System.Windows.Forms.ListView();
-            this.Cliente = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Cedula = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Productos = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.button1 = new System.Windows.Forms.Button();
             this.mtxtNombre = new System.Windows.Forms.MaskedTextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnPedido = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picNormal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPro)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -161,7 +160,7 @@
             this.lblDatos.BackColor = System.Drawing.Color.Transparent;
             this.lblDatos.Font = new System.Drawing.Font("Sitka Banner", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDatos.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblDatos.Location = new System.Drawing.Point(654, 127);
+            this.lblDatos.Location = new System.Drawing.Point(737, 127);
             this.lblDatos.Name = "lblDatos";
             this.lblDatos.Size = new System.Drawing.Size(111, 21);
             this.lblDatos.TabIndex = 8;
@@ -173,7 +172,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Sitka Banner", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label1.Location = new System.Drawing.Point(580, 197);
+            this.label1.Location = new System.Drawing.Point(663, 197);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(54, 21);
             this.label1.TabIndex = 9;
@@ -185,7 +184,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Sitka Banner", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label2.Location = new System.Drawing.Point(580, 165);
+            this.label2.Location = new System.Drawing.Point(663, 165);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(67, 21);
             this.label2.TabIndex = 10;
@@ -193,7 +192,7 @@
             // 
             // txtCedula
             // 
-            this.txtCedula.Location = new System.Drawing.Point(653, 200);
+            this.txtCedula.Location = new System.Drawing.Point(736, 200);
             this.txtCedula.Name = "txtCedula";
             this.txtCedula.Size = new System.Drawing.Size(100, 20);
             this.txtCedula.TabIndex = 4;
@@ -244,37 +243,25 @@
             // 
             // btnComprar
             // 
-            this.btnComprar.Location = new System.Drawing.Point(266, 577);
+            this.btnComprar.Location = new System.Drawing.Point(266, 549);
             this.btnComprar.Name = "btnComprar";
-            this.btnComprar.Size = new System.Drawing.Size(75, 23);
+            this.btnComprar.Size = new System.Drawing.Size(75, 42);
             this.btnComprar.TabIndex = 7;
-            this.btnComprar.Text = "Comprar\r\n";
+            this.btnComprar.Text = "Llevar al carrito";
             this.btnComprar.UseVisualStyleBackColor = true;
             this.btnComprar.Click += new System.EventHandler(this.button1_Click);
             // 
             // lstProductos
             // 
             this.lstProductos.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.Cliente,
-            this.Cedula,
             this.Productos});
             this.lstProductos.HideSelection = false;
-            this.lstProductos.Location = new System.Drawing.Point(632, 246);
+            this.lstProductos.Location = new System.Drawing.Point(691, 246);
             this.lstProductos.Name = "lstProductos";
-            this.lstProductos.Size = new System.Drawing.Size(299, 270);
+            this.lstProductos.Size = new System.Drawing.Size(145, 270);
             this.lstProductos.TabIndex = 18;
             this.lstProductos.UseCompatibleStateImageBehavior = false;
             this.lstProductos.View = System.Windows.Forms.View.Details;
-            // 
-            // Cliente
-            // 
-            this.Cliente.Text = "Cliente";
-            this.Cliente.Width = 113;
-            // 
-            // Cedula
-            // 
-            this.Cedula.Text = "Cédula";
-            this.Cedula.Width = 86;
             // 
             // Productos
             // 
@@ -283,17 +270,17 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(713, 542);
+            this.button1.Location = new System.Drawing.Point(856, 316);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(111, 23);
+            this.button1.Size = new System.Drawing.Size(74, 23);
             this.button1.TabIndex = 19;
-            this.button1.Text = "Quitar Compra";
+            this.button1.Text = "Quitar ";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // mtxtNombre
             // 
-            this.mtxtNombre.Location = new System.Drawing.Point(653, 165);
+            this.mtxtNombre.Location = new System.Drawing.Point(736, 165);
             this.mtxtNombre.Mask = "LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL";
             this.mtxtNombre.Name = "mtxtNombre";
             this.mtxtNombre.PromptChar = ' ';
@@ -310,6 +297,16 @@
             this.pictureBox1.TabIndex = 20;
             this.pictureBox1.TabStop = false;
             // 
+            // btnPedido
+            // 
+            this.btnPedido.Location = new System.Drawing.Point(722, 542);
+            this.btnPedido.Name = "btnPedido";
+            this.btnPedido.Size = new System.Drawing.Size(74, 36);
+            this.btnPedido.TabIndex = 21;
+            this.btnPedido.Text = "Realizar pedido";
+            this.btnPedido.UseVisualStyleBackColor = true;
+            this.btnPedido.Click += new System.EventHandler(this.btnPedido_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -317,6 +314,7 @@
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(979, 603);
+            this.Controls.Add(this.btnPedido);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.lstProductos);
@@ -376,6 +374,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.MaskedTextBox mtxtNombre;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnPedido;
     }
 }
 
