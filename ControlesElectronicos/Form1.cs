@@ -162,21 +162,22 @@ namespace ControlesElectronicos
 
                     if (cmbCelulares.SelectedItem.Equals("Huawei"))
                     {
-                        producto.NombreP = lbHuawei.Text;
+                        producto.Producto = lbHuawei.Text;
                         item = lstProductos.Items.Add(lbHuawei.Text);
 
                     }
                     if (cmbCelulares.SelectedItem.Equals("iPhone"))
                     {
                         item = lstProductos.Items.Add(lbiPhone.Text);
-                        producto.NombreP = lbiPhone.Text;
+                        producto.Producto = lbiPhone.Text;
                     }
                     if (cmbCelulares.SelectedItem.Equals("Samsung"))
                     {
                         item = lstProductos.Items.Add(lbSamsung.Text);
-                        producto.NombreP = lbiPhone.Text;
+                        producto.Producto = lbiPhone.Text;
                     }
                     productos.Ingresar(producto);
+                    limpiar();
 
                 }
                 else

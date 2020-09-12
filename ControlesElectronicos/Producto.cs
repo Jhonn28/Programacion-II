@@ -8,7 +8,7 @@ namespace ControlesElectronicos
 {
     public class Producto
     {
-        public string NombreP { set; get; }
+        public string Producto { set; get; }
 
         public Producto()
         {
