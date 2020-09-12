@@ -8,15 +8,15 @@ namespace ControlesElectronicos
 {
     public class Producto
     {
-        public string Producto { set; get; }
+        public string Pedido { set; get; }
 
         public Producto()
         {
         }
 
-        public Producto(string nombreP)
+        public Producto(string pedido)
         {
-            NombreP = nombreP;
+            Pedido = pedido;
         }
     }
 }
