@@ -12,9 +12,26 @@ namespace ControlesElectronicos
 {
     public partial class PedidoRealizado : Form
     {
+        public Productos productos { set; get; }
         public PedidoRealizado()
         {
             InitializeComponent();
+        }
+
+        private void PedidoRealizado_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnEnviar_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Pedido realizado y enviado");
+            Application.Exit();
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

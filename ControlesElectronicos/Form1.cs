@@ -10,17 +10,12 @@ using System.Windows.Forms;
 //Freddy Alverca
 namespace ControlesElectronicos
 {
-    public partial class Form1 : Form
+    public partial class MundoCelular : Form
     {
-        List<Compra> Compras = new List<Compra>();
-        public Form1()
+        Productos productos = new Productos();
+        public MundoCelular()
         {
             InitializeComponent();
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void cmbCelulares_SelectedIndexChanged(object sender, EventArgs e)
@@ -45,15 +40,16 @@ namespace ControlesElectronicos
             }
         }
 
-        private void lbDispositivo_SelectedIndexChanged(object sender, EventArgs e)
+        private void lbHuawei_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (lbHuawei.SelectedItem.Equals("HUAWEI Mate 20"))
             {
                 Image miImagen = Image.FromFile("mate20.png");
                 Image mio = Image.FromFile("mate20pro.png");
-                //IMAGENES
+
                 picNormal.Image = miImagen;
                 picPro.Image = mio;
+
                 chkComprar.Checked = false;
                 chkComprar1.Checked = false;
             }
@@ -64,6 +60,7 @@ namespace ControlesElectronicos
 
                 picNormal.Image = miImagen;
                 picPro.Image = mio;
+
                 chkComprar.Checked = false;
                 chkComprar1.Checked = false;
             }
@@ -74,12 +71,12 @@ namespace ControlesElectronicos
 
                 picNormal.Image = miImagen;
                 picPro.Image = mio;
+
                 chkComprar.Checked = false;
                 chkComprar1.Checked = false;
             }
         }
-
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void lbSamsung_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (lbSamsung.SelectedItem.Equals("Samsung Galaxy S20"))
             {
@@ -88,6 +85,7 @@ namespace ControlesElectronicos
 
                 picNormal.Image = miImagen;
                 picPro.Image = mio;
+
                 chkComprar.Checked = false;
                 chkComprar1.Checked = false;
             }
@@ -98,6 +96,7 @@ namespace ControlesElectronicos
 
                 picNormal.Image = miImagen;
                 picPro.Image = mio;
+
                 chkComprar.Checked = false;
                 chkComprar1.Checked = false;
             }
@@ -108,6 +107,7 @@ namespace ControlesElectronicos
 
                 picNormal.Image = miImagen;
                 picPro.Image = mio;
+
                 chkComprar.Checked = false;
                 chkComprar1.Checked = false;
             }
@@ -147,74 +147,94 @@ namespace ControlesElectronicos
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnComprar_Click(object sender, EventArgs e)
         {
-          
+
             try
             {
-                if (Control())
+                if (Control() == true)
                 {
-                    Compra cliente = new Compra();
-                    cliente.Nombre = mtxtNombre.Text;
-                    cliente.Cedula = txtCedula.Text;
-                    Compras.Add(cliente);
-                    MessageBox.Show("compra realizada");
-                    limpiar();
-                    //Muestra en la lista el objeto ingresado
-                    ListViewItem item =  new ListViewItem();
-                    item = lstProductos.Items.Add(cliente.Nombre.ToString());
-                    item.SubItems.Add(cliente.Cedula);
+                    MessageBox.Show("Producto en el carrito");
+
+                    pnlDatos.Visible = true;
+
+                    Producto producto = new Producto();
+
                     if (cmbCelulares.SelectedItem.Equals("Huawei"))
                     {
-                        item.SubItems.Add(lbHuawei.Text);
+                        lstProductos.Items.Add(lbHuawei.Text);
+                        producto.Pedido = lbHuawei.Text;
                     }
                     if (cmbCelulares.SelectedItem.Equals("iPhone"))
                     {
-                        item.SubItems.Add(lbiPhone.Text);
+                        lstProductos.Items.Add(lbiPhone.Text);
+                        producto.Pedido = lbiPhone.Text;
                     }
                     if (cmbCelulares.SelectedItem.Equals("Samsung"))
                     {
-                        item.SubItems.Add(lbSamsung.Text);
+                        lstProductos.Items.Add(lbSamsung.Text);
+                        producto.Pedido = lbSamsung.Text;
                     }
+                    productos.Ingresar(producto);
+                    Limpiar();
                 }
                 else
                 {
-                    MessageBox.Show("Espacios sin completar");
+                    MessageBox.Show("Seleccione un producto :)");
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void btnPedido_Click(object sender, EventArgs e)
+        {
+            if (mtxtNombre.Text != "" && txtCedula.Text != "")
+            {
+                this.Hide();
+
+                PedidoRealizado pedidoRealizado = new PedidoRealizado();
+
+                pedidoRealizado.Show();
+                pedidoRealizado.lblCliente.Text = "Cliente: " + mtxtNombre.Text;
+
+                pedidoRealizado.lblCedula.Text = "Cédula: " + txtCedula.Text;
+
+                pedidoRealizado.dgvMostrar.DataSource = null;
+                pedidoRealizado.dgvMostrar.DataSource = productos.MisProductos;
+            }
+            else
+            {
+                MessageBox.Show("Ingrese Datos del Comprador");
+            }
+        }
+
+        private void btnQuitar_Click(object sender, EventArgs e)
+        {
+            foreach (ListViewItem item in lstProductos.SelectedItems)
+            {
+                item.Remove();
+            }
+        }
+
         public bool Control()
         {
             bool aux = false;
-            if (mtxtNombre.Text != "" && txtCedula.Text != "")
+            if ((chkComprar.Checked != false || chkComprar1.Checked != false) && (lbiPhone.Text != " " || lbHuawei.Text != " " || lbSamsung.Text != " "))
             {
-                if ((chkComprar.Checked != false || chkComprar1.Checked != false) && (lbiPhone.Text != " " || lbHuawei.Text != " " || lbSamsung.Text != " "))
-                {
-                    aux = true;
-                }
+                aux = true;
             }
             return aux;
         }
 
-  
-        public void limpiar()
+        public void Limpiar()
         {
             mtxtNombre.Clear();
             txtCedula.Clear();
             chkComprar.Checked = false;
             chkComprar1.Checked = false;
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            foreach(ListViewItem item in lstProductos.SelectedItems)
-            {
-                item.Remove();
-            }
         }
     }
 }
