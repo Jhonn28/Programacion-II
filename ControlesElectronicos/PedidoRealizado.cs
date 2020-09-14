@@ -33,5 +33,10 @@ namespace ControlesElectronicos
         {
             Application.Exit();
         }
+
+        private void dgvMostrar_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
