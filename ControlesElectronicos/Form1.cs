@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-//Freddy Alverca
+
 namespace ControlesElectronicos
 {
     public partial class MundoCelular : Form
